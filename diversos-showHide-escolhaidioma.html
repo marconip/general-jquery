@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <style type="text/css">
+    body{background: #ccc; margin:0px; overflow: hidden;}
+
+    #white, #black {display: none;}
+    .content-container div {display: none; position: absolute; left: 0; top: 30px;}
+    .content-container #content1 {display: block;}
+
+    #red {width: 100px; position: absolute; right:-80px; top:50%; transform: translateY(-50%); transition: 0.35s;}
+    #red:hover {right: 0px;}
+
+    #rolagem div {position: relative; top: 10px; transition: 4s;}
+    #rolagem:hover div {top: -380px;}
+
+    .posicao01 {position: absolute; top: 100px; right: -80px; transition: 0.35s;}
+    .posicao01.posicao02 {right: 0px;}
+    </style>
+    <title>JavaScript</title>
+  </head>
+  <body>   
+
+    <a class="link" href="#" data-rel="content1">Port</a> | 
+    <a class="link" href="#" data-rel="content2">Eng</a> | 
+    <a class="link" href="#" data-rel="content3">Esp</a> | 
+    <a id="branco" href="#"> Mostrar Branco </a> | 
+    <a id="preto" href="#"> Mostrar Preto </a>
+    
+    <div class="content-container">
+        <div id="content1">Este texto esta em Português</div>
+        <div id="content2">This test content English</div>
+        <div id="content3">Este contenido de prueba español</div>
+    </div>
+
+    <section id="black" style="background: #000;color: #fff; width: 100px;position: absolute; right:0px;top:0px;">
+      <h1>Black</h1>
+    </section>
+    
+    <section id="white" style="background:#fff;width:100px;position: absolute; left:0px;top:100px;">
+      <h1>white</h1>    
+    </section>
+
+    <section id="red" style="background: rgb(136, 43, 10);">
+      <h1>RED</h1>    
+    </section>
+
+    <section id="rolagem" style="border: 1px solid #000; overflow:hidden; width:300px;height:250px;margin-top:250px;">
+      <div style="width: 300px; height: 600px; background: #fff">
+        <p>texto ou imagem</p>
+        <p>texto ou imagem</p>
+        <p>texto ou imagem</p>
+        <p>texto ou imagem</p>
+        <p>texto ou imagem</p>
+        <p>texto ou imagem</p>
+        <p>texto ou imagem</p>
+        <p>texto ou imagem</p>
+        <p>texto ou imagem</p>
+        <p>texto ou imagem</p>
+        <p>texto ou imagem</p>
+        <p>texto ou imagem</p>
+      </div>
+    </section>
+
+    <section class="posicao01" style="width: 100px; background: green">
+      <h1>verde</h1>
+    </section>
+    <hr>
+    <h1>jQuery ações ao click e css hover animado</h1>
+
+    <script src="jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+    $(".link").click(function(e) { //trocar linguagem
+        e.preventDefault();
+        $('.content-container div').fadeOut('slow');
+        $('#' + $(this).data('rel')).fadeIn('slow');
+    });
+
+    $("#branco").click(function(e){ //mostrar como slide Horizontal
+      e.preventDefault();
+      $("#white").toggle("slide");
+    });
+
+    $("#preto").click(function(e){ //mostrar como slide na Vertical
+      e.preventDefault();
+      $("#black").slideToggle("slow");
+    });
+  
+    $(".posicao01").click(function(e){ //add class traz animação no css Clicando dentro/fora remove class
+      e.preventDefault();
+      $(".posicao01").toggleClass("posicao02");      
+    });    
+    $(document).on("click", function(e) {
+      if ($(e.target).is(".posicao02") === false) {
+        $(".posicao01").removeClass("posicao02");
+      }
+    });
+    </script>
+
+  </body>
+</html>

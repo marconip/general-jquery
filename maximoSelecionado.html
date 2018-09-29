@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <style type="text/css">
+    .active {
+      border: 2px solid red;
+    }
+
+    section {
+      margin-top: 800px;
+    }
+  </style>
+</head>
+
+<body>
+  <p>conteudo abaixo</p>
+  <section>
+    <img src="image/img01.jpg" style="max-width:180px" class="imgclick">
+    <img src="image/img02.jpg" style="max-width:180px" class="imgclick">
+    <img src="image/img03.jpg" style="max-width:180px" class="imgclick">
+  </section>
+  <hr>
+  <BR/>
+
+  <p>É PERMITIDO APENAS SELECIONAR 2 IMAGENS QUANDO TENTAR SELECIONAR A 3ºIMAGEM VAI MOSTRAR UM ALERTA: "máximo já selecionado</p>
+  <a href="#detalhes" id="gototop"> VAi PARA CIMA</a>
+
+
+
+  <script src="jquery-3.3.1.min.js"></script>
+  <script>
+
+    $('.imgclick').click(function () {
+      $(this).toggleClass('active');
+
+      var teste = document.querySelectorAll(".active");
+
+      if (teste.length > 2) {
+        alert("Máximo já selecionado!");
+      }
+    });
+
+    $("#gototop").click(function () {
+      $("html, body").animate({ scrollTop: 0 }, 900);
+      return false;
+    });
+  </script>
+
+</body>
+
+</html>

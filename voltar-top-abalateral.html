@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>gotop aba</title>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>    
+
+<script type="text/javascript">
+
+jQuery(document).ready(function($){
+
+  $("#back-to-top").click(function(){
+    $("html, body").animate({ scrollTop: 0 }, 600);
+    return false;
+  });
+
+  $(window).scroll(function(){
+      if ($(this).scrollTop() > 200) {  
+        $('#back-to-top').addClass("aparece");
+      } else {
+        $('#back-to-top').removeClass("aparece");
+      } 
+  });
+
+});
+</script>
+
+
+<style type="text/css">
+#back-to-top{
+    position:fixed;
+    bottom:100px;
+    right:0;
+    height:20px;
+    padding:5px;
+    line-height:20px;
+    width:80px;
+    background:white;
+    border-radius:5px 0 0 5px;
+    cursor:pointer;
+    margin-right:-85px;
+    -webkit-box-shadow:0 0 0 1px rgba(0,0,0,0.17),0 3px 2px rgba(0,0,0,0.09);
+    box-shadow:0 0 0 1px rgba(0,0,0,0.17),0 3px 2px rgba(0,0,0,0.09);
+    -webkit-transition:margin .3s cubic-bezier(0.175,0.885,0.32,1.275);
+    -moz-transition:margin .3s cubic-bezier(0.175,0.885,0.32,1.275);
+    -o-transition:margin .3s cubic-bezier(0.175,0.885,0.32,1.275);
+    transition:margin .3s cubic-bezier(0.175,0.885,0.32,1.275)
+  }
+  #back-to-top.aparece{
+    margin-right:-60px
+  }
+  #back-to-top:hover{
+    margin-right:-20px
+  }
+  #back-to-top p{
+    margin-left:30px;
+    margin-top: 0px;
+  }
+  #back-to-top .icon{
+    width:20px;
+    height:20px;
+    display:block;
+    float:left;
+    margin-right:8px;
+    border-radius:3px;
+    background-image:url("http://static.tumblr.com/hugxd2w/YUsma9g5b/effector-sprite.png");
+    background-repeat:no-repeat;
+    background-color: #f55b2c;
+    background-position:4px -120px
+    }
+    #back-to-top:hover .icon{
+      background-color:#2f3030
+    }
+
+.conteudo{ height:1600px}
+</style>
+
+</head>
+<body>        
+        <div id="back-to-top"><a href="javascript:void(0)">
+          <span class="icon"></span>
+            <p>Topo</p>
+         </a></div>
+
+         <div class="conteudo"></div>
+</body>
+</html>
