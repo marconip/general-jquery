@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+
+  <style type="text/css">
+    #clonar-aqui img {border: 4px solid red;}
+  </style>
+
+<body>
+  <h1>Clone</h1>
+
+  <section>
+    <p>O jquery clone() dublica qualquer elemento html para outra parte do html</p>
+    <div id="imagens">
+      <img src="image/img01.jpg" style="max-width:180px" class="imgclick">
+      <img src="image/img02.jpg" style="max-width:180px" class="imgclick">
+      <img src="image/img03.jpg" style="max-width:180px" class="imgclick">
+    </div>
+  </section>
+  <hr>
+  <br/>
+
+  <section>
+    <p>Este conteúdo não foi escrito no html ele foi clonado do conteúdo acima e adicionado o css de borda</p>
+    <div id="clonar-aqui"></div>
+  </section>
+
+  <script src="jquery-3.3.1.min.js"></script>
+  <script>
+    $(function(){
+      $("#imagens").clone().appendTo("#clonar-aqui");
+    });
+  </script>
+
+</body>
+
+</html>
